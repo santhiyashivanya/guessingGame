@@ -2,7 +2,6 @@ let guessBox = document.getElementById("number-input");
 let check = document.getElementById("guess");
 let history = document.getElementById("history");
 const randomNumber = Math.floor(Math.random()*100+1);
-console.log(randomNumber)
 let count = 1;
 let finalResult = false;
 history.innerHTML = "";
@@ -23,9 +22,9 @@ function viewHistory() {
 
 function computeWinner() {
     let result = document.getElementById("result");
+    let guess = guessBox.value;
 
     if (count < 5) {
-        let guess = guessBox.value;
         if (randomNumber == guess) {
             result.innerHTML = "<h1>You Won!</h1>";
             finalResult = true;
@@ -37,11 +36,12 @@ function computeWinner() {
             finalResult = false;
         }
         count ++;
-    } else if (count == 5) {
+    } else {
         if (randomNumber == guess) {
             result.innerHTML = "<h1>You Won!</h1>";
             finalResult = true;
-        } else {
+        }
+        else {
             result.innerHTML = "<h1>You Lose!</h1>";
             finalResult = true;
         }
